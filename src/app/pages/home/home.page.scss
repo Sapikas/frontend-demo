@@ -1,0 +1,92 @@
+ion-content {
+  --background: #F7F7F7;
+  --padding-top: 3rem;
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding-bottom: 1rem;
+
+    @media screen and (max-width: 992px) {
+      max-width: 800px;
+    }
+
+    @media screen and (max-width: 768px) {
+      max-width: 450px;
+    }
+
+    @media screen and (max-width: 576px) {
+      max-width: 350px;
+    }
+
+    ion-searchbar {
+      --background: white;
+      color: #333;
+      font-size: .875rem;
+      --border-radius: 8px;
+      --box-shadow: rgb(0 0 0 / 13%) 2px 2px 4px 2px;
+    }
+
+    ion-grid {
+      h2 {
+        color: black;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      ion-col {
+        .img-center {
+          width: 11.25rem;
+          height: 150px;
+          margin-bottom: 1rem;
+
+          @media screen and (max-width: 576px) {
+            width: 100%;
+          }
+
+          img {
+            position: relative;
+            display: block;
+            height: 100%;
+            width: 100%;
+            opacity: 1;
+            object-fit: cover;
+            border-radius: 5px;
+
+            @media screen and (max-width: 1100px) {
+              width: 90%;
+            }
+
+            @media screen and (max-width: 992px) {
+              width: 70%;
+            }
+
+            @media screen and (max-width: 991px) {
+              width: 90%;
+            }
+
+            @media screen and (max-width: 768px) {
+              width: 75%;
+            }
+
+            @media screen and (max-width: 576px) {
+              width: 100%;
+            }
+          }
+        }
+
+        h3 {
+          color: black;
+          font-size: 1rem;
+        }
+
+        p {
+          color: #9b9b9b;
+          font-size: 0.667rem;
+          font-weight: 400;
+          margin-top: -0.208rem;
+        }
+      }
+    }
+  }
+}

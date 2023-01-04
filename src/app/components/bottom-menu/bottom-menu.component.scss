@@ -1,0 +1,28 @@
+ion-content {
+  .mobile-nav {
+    background: #F1F1F1;
+    position: fixed;
+    bottom: 0;
+    height: 65px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    .bloc-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      fa-icon {
+        font-size: 30px;
+        color: black;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .mobile-nav {
+      display: none;
+    }
+  }
+}

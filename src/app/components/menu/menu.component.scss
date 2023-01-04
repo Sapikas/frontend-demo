@@ -1,0 +1,22 @@
+ion-toolbar {
+  --background: var(--white);
+
+  ion-menu-button {
+    color: black;
+  }
+
+  ion-title {
+    --color: black;
+  }
+
+  .cooperation-btn {
+    font-size: .667rem;
+    color: var(--black);
+
+    button {
+      padding: .667rem;
+      border-radius: 5px;
+      background-color: black;
+    }
+  }
+}
