@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { LoginPage } from './pages/login/login.page'
 import { HomePage } from './pages/home/home.page';
+import { DietAgencyPage } from './pages/diet-agency/diet-agency.page';
 
 const routes: Routes = [
   {
@@ -15,9 +15,9 @@ const routes: Routes = [
     component: HomePage,
   },
   {
-    path: 'login',
-    component: LoginPage
-  },
+    path: 'agency',
+    component: DietAgencyPage,
+  }
 ];
 
 @NgModule({

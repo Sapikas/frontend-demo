@@ -1,5 +1,9 @@
 <ion-app>
   <app-menu></app-menu>
-  <ion-router-outlet id="menuContent"></ion-router-outlet>
-  <app-bottom-menu></app-bottom-menu>
+  <ion-content>
+    <ion-router-outlet></ion-router-outlet>
+  </ion-content>
+  <div class="sidebar-overlay" (click)="closeSidebar()" *ngIf="isSidebarOverlay"></div>
+  <app-login-modal *ngIf="isLoginModalOpen"></app-login-modal>
+  <app-general-sidebar *ngIf="isGeneralSidebar"></app-general-sidebar>
 </ion-app>

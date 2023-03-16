@@ -1,0 +1,43 @@
+<div class="sidebar animate__animated animate__fadeInLeft">
+  <div class="back-btn">
+    <button class="back-btn" (click)="closeSidebar()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </button>
+  </div>
+  <h2 class="header">Αξιολογήσεις</h2>
+  <div class="rating">
+    <div class="circle">
+      <ion-icon name="star" class="yellow-star"></ion-icon>
+      <div class="average-rating">4.3</div>
+    </div>
+  </div>
+  <div class="categories">
+    <div class="category">
+      <div class="name">Ποιότητα</div>
+      <div class="rating-value">4.1</div>
+    </div>
+    <div class="category">
+      <div class="name">Εξυπηρέτηση</div>
+      <div class="rating-value">4.6</div>
+    </div>
+    <div class="category">
+      <div class="name">Ταχύτητα</div>
+      <div class="rating-value">4.3</div>
+    </div>
+  </div>
+  <div class="comments">
+    <div class="comment"> <!--*ngFor="let comment of comments"-->
+      <div class="user-info">
+        <div class="username">
+          <ion-icon name="person-circle-outline"></ion-icon>
+          <div class="user-name">name</div>
+        </div>
+        <div class="user-stars">
+          <ion-icon name="star" class="yellow-star"></ion-icon>
+          <div class="user-rating">4.9</div>
+        </div>
+      </div>
+      <div class="user-comment">comment</div>
+    </div>
+  </div>
+</div>

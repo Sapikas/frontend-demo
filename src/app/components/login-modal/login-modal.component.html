@@ -1,0 +1,29 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h2>Είσοδος στο ediet</h2>
+    <div class="modal-close" (click)="closeModal()">&times;</div>
+  </div>
+  <div class="modal-login-register">
+    <div #loginDiv (click)="toggleActive(loginDiv)" [ngClass]="{'active': loginActive}">Σύνδεση</div>
+    <div #signupDiv (click)="toggleActive(signupDiv)" [ngClass]="{'active': signupActive}">Εγγραφή</div>
+  </div>
+  <div class="modal-buttons">
+    <button class="modal-button facebook">Συνέχεια με Facebook</button>
+    <button class="modal-button apple">Συνέχεια με Apple</button>
+    <button class="modal-button google">Συνέχεια με την Google</button>
+  </div>
+  <div class="modal-separator">
+    <div class="modal-circle">
+      <span>ή</span>
+    </div>
+  </div>
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <input type="email" placeholder="Διεύθυνση email" class="modal-input"ngModel name="email" required>
+    <input type="password" placeholder="Κωδικός πρόσβασης" class="modal-input" ngModel name="password" required>
+    <p *ngIf="signupActive" class="passDesc">Ο κωδικός σου πρέπει να είναι τουλάχιστον 8 χαρακτήρες και να περιλαμβάνει τουλάχιστον έναν αριθμό, ένα κεφαλαίο και ένα μικρό γράμμα.</p>
+    <button type="submit" class="modal-login-button">{{submitText}}</button>
+  </form>
+  <div *ngIf="loginActive" class="modal-footer">
+    <p>Ξέχασα τον κωδικό πρόσβασης</p>
+  </div>
+</div>

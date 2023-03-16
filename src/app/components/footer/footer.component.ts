@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-footer',
@@ -10,8 +11,15 @@ import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 export class FooterComponent implements OnInit {
   public faFacebook = faFacebookF;
   public faInstagram = faInstagram;
-  constructor() { }
+  public mobileAppBanner: any;
+  constructor(private platform: Platform) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (this.platform.is('cordova')) {
+      this.mobileAppBanner = false;
+    } else {
+      this.mobileAppBanner = true;
+    }
+  }
 
 }

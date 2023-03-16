@@ -1,0 +1,55 @@
+<ion-content>
+  <div class="container">
+    <div class="info-container">
+      <div class="image-container">
+        <img src="../../../assets/home/TheSocialClub_06.jpg">
+      </div>
+      <ion-row>
+        <ion-col size-sm="6" size-xs="12">
+          <fa-icon [icon]="faEnvelope"></fa-icon>
+          <span> : your-email@mail.com</span>
+        </ion-col>
+        <ion-col size-sm="6" size-xs="12">
+          <fa-icon [icon]="faPhone"></fa-icon>
+          <span> : 123-456-7890</span>
+        </ion-col>
+        <ion-col size-sm="6" size-xs="12">
+          <fa-icon [icon]="faLocation"></fa-icon>
+          <span> : Your Address</span>
+        </ion-col>
+        <ion-col (click)="openReviewSidebar()" class="star" size-sm="6" size-xs="12">
+          <fa-icon [icon]="faStar"></fa-icon>
+          <span> : 4.5</span>
+          <span class="not-user-only-text"> (Αξιολογήσεις μπορούν να κάνουν οι εγγεγραμμένοι χρήστες)</span>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="center">
+      <h2>ΣΧΕΤΙΚΑ ΜΕ ΕΜΑΣ</h2>
+      <p>Dummy text goes here. Dummy text goes here. Dummy text goes here. Dummy text goes here.</p>
+    </div>
+    <div class="center">
+      <h2>ΕΠΙΚΟΙΝΩΝΙΑ</h2>
+      <form> <!--(ngSubmit)="submitForm()"-->
+        <ion-item>
+          <ion-label position="stacked">Full Name *</ion-label>
+          <ion-input required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Email *</ion-label>
+          <ion-input type="email" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Phone</ion-label>
+          <ion-input type="tel"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Message *</ion-label>
+          <ion-textarea required></ion-textarea>
+        </ion-item>
+        <ion-button type="submit" expand="block" color="success">Submit</ion-button>
+      </form>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</ion-content>

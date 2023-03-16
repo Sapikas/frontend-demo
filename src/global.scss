@@ -25,6 +25,8 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+@import '~animate.css/animate.min.css';
+
 :root {
   --indigo: #6610f2;
   --pink: #e83e8c;
@@ -58,6 +60,41 @@
 }
 
 html {
-	font-size: 24px;
+  font-size: 24px;
   font-family: 'Source Sans 3', "Roboto", sans-serif;
+
+  @media (max-width: 992px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 16px;
+  }
+}
+
+ion-content {
+  --background: #F7F7F7;
+  --padding-top: 1rem;
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding-bottom: 1rem;
+
+    @media screen and (max-width: 992px) {
+      max-width: 800px;
+    }
+
+    @media screen and (max-width: 768px) {
+      max-width: 600px;
+    }
+
+    @media screen and (max-width: 576px) {
+      max-width: 350px;
+    }
+  }
 }

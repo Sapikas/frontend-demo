@@ -1,30 +1,55 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { Subscription } from 'rxjs';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, OnDestroy {
+  faInstagram = faInstagram;
+  faFacebook = faFacebook;
+  isSidebarOpen: boolean = false;
+  isLoginModalOpen: boolean = false;
+  private sidebarSub: Subscription;
+  private loginSub: Subscription;
 
-  constructor(private menu: MenuController) { }
+  constructor(private sharedService: SharedService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.sidebarSub = this.sharedService.isSidebarOpenSubject.subscribe((isSidebarOpen: boolean) => {
+      console.log(isSidebarOpen);
+      if (!isSidebarOpen) {
+        this.isSidebarOpen = false;
+      }
+    });
+    this.loginSub = this.sharedService.isLoginModalOpenSubject.subscribe((isLoginModalOpen: boolean) => {
+      if (!isLoginModalOpen) {
+        this.isLoginModalOpen = false;
+      }
+    });
+   }
 
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+    this.sharedService.isSidebarOpenSubject.next(this.isSidebarOpen);
   }
 
-  openEnd() {
-    this.menu.open('end');
+  closeSidebar() {
+    this.isSidebarOpen = false;
+    this.sharedService.isSidebarOpenSubject.next(false);
   }
 
-  openCustom() {
-    this.menu.enable(true, 'custom');
-    this.menu.open('custom');
+  openLoginModal() {
+    this.isLoginModalOpen = true
+    this.sharedService.isLoginModalOpenSubject.next(this.isLoginModalOpen);
+  }
+
+  ngOnDestroy() {
+    this.sidebarSub.unsubscribe();
+    this.loginSub.unsubscribe();
   }
 
 }

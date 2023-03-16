@@ -4,15 +4,18 @@ footer {
   line-height: 1rem;
   color: black;
   height: auto;
+  // @media screen and (max-width: 768px) {
+  //   margin-bottom: 65px;
+  // }
 
   .mobile-app-banner-wrapper {
     background-color: var(--light);
     max-height: 11.333rem;
-    padding-top: 2rem;
+    padding-top: 1rem;
     margin-bottom: 2.5rem;
 
     @media screen and (max-width: 992px) {
-      margin-bottom: 3.5rem;
+      max-height: 12rem;
     }
 
     .mobile-app-banner-container {
@@ -24,6 +27,10 @@ footer {
         max-width: 800px;
       }
 
+      @media screen and (max-width: 768px) {
+        max-width: 600px;
+      }
+
       ion-row {
         border-radius: 5px;
         box-shadow: 2px 4px 8px 4px rgb(0 0 0 / 8%);
@@ -33,43 +40,64 @@ footer {
           height: 11.933rem;
         }
 
+        @media screen and (max-width: 768px) {
+          height: auto;
+        }
+
         .mobile-app-banner-description {
 
           h3 {
             color: var(--black);
           }
-  
+
           p {
             font-size: .667rem;
             color: var(--black);
             margin-top: 0;
           }
-  
+
           div {
             a {
               margin-right: .5rem;
+
+              img {
+                height: 2rem;
+              }
             }
           }
         }
-  
-        .mobile-app-banner-img {
-          height: 11.333rem;
-          object-fit: cover;
-          margin-left: 1.15rem;
-          margin-top: -0.208rem;
-          border-top-right-radius: 5px;
 
-          @media screen and (max-width: 992px) {
-            width: 15.3rem;
-            margin-top: -0.298rem;
+        .mobile-app-banner-img-col {
+
+          @media screen and (max-width: 768px) {
+            padding: 0;
+          }
+
+          .mobile-app-banner-img {
+            height: 11.333rem;
+            object-fit: cover;
+            margin-left: 1.15rem;
+            margin-top: -0.208rem;
+            border-top-right-radius: 5px;
+
+            @media screen and (max-width: 992px) {
+              width: 15.3rem;
+              height: 11.933rem;
+            }
+
+            @media screen and (max-width: 768px) {
+              width: 100%;
+              margin-left: 0;
+              border-top-right-radius: 0;
+            }
+
+            @media screen and (max-width: 400px) {
+              height: auto;
+            }
           }
         }
       }
     }
-  }
-
-  @media screen and (max-width: 768px) {
-    display: none;
   }
 
   ion-grid {
@@ -80,11 +108,16 @@ footer {
       max-width: 800px;
     }
 
+    @media screen and (max-width: 768px) {
+      margin-top: 10rem;
+      max-width: 600px;
+    }
+
     ion-row {
 
       ion-col {
         .img-footer {
-          width: 8.333rem;
+          width: 10.333rem;
           height: 100px;
 
           img {

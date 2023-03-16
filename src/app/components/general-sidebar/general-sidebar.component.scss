@@ -1,0 +1,145 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  width: 452px;
+  height: 100%;
+  background-color: #F7F7F7;
+  z-index: 999;
+  overflow-y: auto;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.3);
+  transition: left 0.3s ease-in-out;
+
+  @media screen and (max-width: 576px) {
+    width: 90%;
+  }
+
+  .back-btn {
+    background-color: white;
+
+    button {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      color: #000;
+      font-size: 20px;
+      background-color: white;
+  
+      ion-icon {
+        font-size: 25px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .header {
+    padding: 20px 0;
+    margin: 0 0 0 20px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #000;
+    background-color: white;
+  }
+
+  .rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background-color: white;
+
+    .circle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 80px;
+      background-color: #FFFCDC;
+      border-radius: 50%;
+      margin-right: 20px;
+      color: #FFC200;
+    }
+  }
+
+  .categories {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: white;
+    .category {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+      padding: 20px;
+  
+      .name {
+        font-size: 14px;
+        color: #000;
+        font-weight: bold;
+      }
+  
+      .rating-value {
+        font-size: 14px;
+        color: #333;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .comments {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: white;
+    color: black; 
+
+    .comment {
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+
+      .user-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .username {
+          display: flex;
+          align-items: center;
+
+          ion-icon {
+            font-size: 25px;
+            margin-right: 10px;
+          }
+
+          .user-name {
+            margin-right: 10px;
+            font-size: 0.788rem;
+          }
+        }
+
+        .user-stars {
+          display: flex;
+          align-items: center;
+
+          ion-icon {
+            font-size: 16px;
+            color: #FFC200;
+            margin-right: 5px;
+          }
+
+          .user-rating {
+            font-size: 0.666rem;
+          }
+        }
+      }
+
+      .user-comment {
+        font-size: 14px;
+        color: #333;
+        margin-top: 5px;
+        font-weight: lighter;
+        flex-grow: 1;
+        text-align: left;
+      }
+    }
+  }
+}

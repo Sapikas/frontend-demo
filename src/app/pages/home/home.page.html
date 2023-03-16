@@ -1,43 +1,15 @@
 <ion-content class="ion-padding-top">
   <div class="container">
-    <ion-searchbar animated="true" placeholder="Αναζήτηση"></ion-searchbar>
+    <ion-searchbar *ngIf="dietAgencies.length !== 0" animated="true" placeholder="Αναζήτηση"></ion-searchbar>
     <ion-grid>
-      <h2 class="ion-text-center">Διαιοτολογικά Γραφεία</h2>
-      <ion-row>
-        <ion-col size="12" size-sm="6" size-md="4" size-lg="3">
+      <h2 class="ion-text-center">{{agencyText}}</h2>
+      <ion-row *ngIf="dietAgencies.length !== 0">
+        <ion-col *ngFor="let dietAgency of dietAgencies" [attr.agency-id]="dietAgency._id" (click)="onDietAgency(dietAgency._id)" size="12" size-sm="6" size-md="4" size-lg="3">
           <div class="img-center">
             <img src="../../../assets/home/TheSocialClub_06.jpg" alt="social club">
           </div>
-          <h3>title</h3>
-          <p class="location">location</p>
-        </ion-col>
-        <ion-col size="12" size-sm="6" size-md="4" size-lg="3">
-          <div class="img-center">
-            <img src="../../../assets/home/TheSocialClub_06.jpg" alt="social club">
-          </div>
-          <h3>title</h3>
-          <p class="location">location</p>
-        </ion-col>
-        <ion-col size="12" size-sm="6" size-md="4" size-lg="3">
-          <div class="img-center">
-            <img src="../../../assets/home/TheSocialClub_06.jpg" alt="social club">
-          </div>
-          <h3>title</h3>
-          <p class="location">location</p>
-        </ion-col>
-        <ion-col size="12" size-sm="6" size-md="4" size-lg="3">
-          <div class="img-center">
-            <img src="../../../assets/home/TheSocialClub_06.jpg" alt="social club">
-          </div>
-          <h3>title</h3>
-          <p class="location">location</p>
-        </ion-col>
-        <ion-col size="12" size-sm="6" size-md="4" size-lg="3">
-          <div class="img-center">
-            <img src="../../../assets/home/TheSocialClub_06.jpg" alt="social club">
-          </div>
-          <h3>title</h3>
-          <p class="location">location</p>
+          <h3>{{dietAgency.name}}</h3>
+          <p class="location">{{dietAgency.city}}</p>
         </ion-col>
       </ion-row>
     </ion-grid>

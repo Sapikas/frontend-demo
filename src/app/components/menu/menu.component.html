@@ -1,27 +1,43 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Page Logo</ion-title>
-    <ion-buttons class="cooperation-btn" slot="primary">
-      <button>Γίνε Συνεργάτης</button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-<ion-menu side="start" contentId="menuContent">
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
+<header>
+  <div class="menu-container">
+    <div class="burger-menu" (click)="toggleSidebar()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <div class="logo">
+      <img src="path/to/logo.png" alt="logo">
+    </div>
+    <div class="login-register">
+      <button (click)="openLoginModal()">Σύνδεση/Εγγραφή</button>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar" [class.open]="isSidebarOpen">
+  <div class="sidebar-header">
+    <h4>Menu</h4>
+    <button (click)="closeSidebar()">&#10005;</button>
+  </div>
+  <div class="menu-title">Menu 1</div>
+  <ul>
+    <li><a href="#">Menu Item 1</a></li>
+    <li><a href="#">Menu Item 2</a></li>
+    <li><a href="#">Menu Item 3</a></li>
+    <li><a href="#">Menu Item 4</a></li>
+  </ul>
+  <div class="line"></div>
+  <div class="menu-title">Menu 2</div>
+  <ul>
+    <li><a href="#">Menu Item 1</a></li>
+    <li><a href="#">Menu Item 2</a></li>
+    <li><a href="#">Menu Item 3</a></li>
+    <li><a href="#">Menu Item 4</a></li>
+  </ul>
+  <div class="line"></div>
+  <div class="contact-email">contact@yourdomain.com</div>
+  <div class="social-media">
+    <a href="#" target="_blank"><fa-icon [icon]="faFacebook"></fa-icon></a>
+    <a href="#" target="_blank"><fa-icon [icon]="faInstagram"></fa-icon></a>
+  </div>
+</div>
