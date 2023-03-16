@@ -12,6 +12,21 @@
   padding: 0.833rem;
   z-index: 9999;
 
+  @media screen and (max-width: 992px) {
+    max-height: 635px;
+    height: 70%;
+  }
+
+  @media screen and (max-width: 768px) {
+    max-height: 515px;
+    height: 75%;
+  }
+
+  @media screen and (max-width: 576px) {
+    max-height: 470px;
+    height: 80%;
+  }
+
   .modal-header {
     display: flex;
     justify-content: space-between;

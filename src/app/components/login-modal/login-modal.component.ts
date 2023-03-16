@@ -43,10 +43,7 @@ export class LoginModalComponent implements OnInit, OnDestroy {
     this.authSub = this.userService.login(this.signedUpForm.value).subscribe(
       () => {
         this.sharedService.isLoginModalOpenSubject.next(false);
-        console.log(this.router.url);
-        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          this.router.navigate([this.router.url]);
-        });
+        this.router.navigate(['/home']);
       }, (error) => {
         console.log(error);
       }
@@ -54,7 +51,7 @@ export class LoginModalComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.authSub.unsubscribe();
+    this.authSub?.unsubscribe();
   }
 
 }
