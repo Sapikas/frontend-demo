@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
-import { MainQuery } from 'src/app/state/mainState/main.query';
 import { MainService } from 'src/app/state/mainState/main.service';
 
 @Component({
@@ -12,7 +11,10 @@ import { MainService } from 'src/app/state/mainState/main.service';
 export class DietAgencyPage implements OnInit {
   isReviewSidebar: boolean = false;
 
-  constructor(private sharedSercice: SharedService, private mainService: MainService, private router: Router) { }
+  constructor(
+    private mainService: MainService, 
+    private router: Router,
+    private sharedSercice: SharedService) { }
 
   ngOnInit() {
     const url = this.router.url;

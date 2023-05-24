@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { SharedService } from 'src/app/services/shared.service';
+import { LoginModalComponent } from '../login-modal/login-modal.component';
+import { AnimationController, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-menu',
@@ -8,45 +9,55 @@ import { SharedService } from 'src/app/services/shared.service';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit, OnDestroy {
-  isSidebarOpen: boolean = false;
   isLoginModalOpen: boolean = false;
   private sidebarSub: Subscription;
-  private loginSub: Subscription;
 
-  constructor(private sharedService: SharedService) { }
+  constructor(
+    private modalCtrl: ModalController, 
+    private animationCtrl: AnimationController,) { }
 
-  ngOnInit() {
-    this.sidebarSub = this.sharedService.isSidebarOpenSubject.subscribe((isSidebarOpen: boolean) => {
-      console.log(isSidebarOpen);
-      if (!isSidebarOpen) {
-        this.isSidebarOpen = false;
-      }
+  ngOnInit() {}
+
+  enterAnimation = (baseEl: HTMLElement) => {
+    const root = baseEl.shadowRoot;
+
+    const backdropAnimation = this.animationCtrl
+      .create()
+      .addElement(root?.querySelector('ion-backdrop')!)
+      .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
+
+    const wrapperAnimation = this.animationCtrl
+      .create()
+      .addElement(root?.querySelector('.modal-wrapper')!)
+      .keyframes([
+        { offset: 0, opacity: '0', transform: 'scale(0)' },
+        { offset: 1, opacity: '0.99', transform: 'scale(1)' },
+      ]);
+
+    return this.animationCtrl
+      .create()
+      .addElement(baseEl)
+      .easing('ease-out')
+      .duration(500)
+      .addAnimation([backdropAnimation, wrapperAnimation]);
+  };
+
+  leaveAnimation = (baseEl: HTMLElement) => {
+    return this.enterAnimation(baseEl).direction('reverse');
+  };
+
+  async openModal() {
+    const modal = await this.modalCtrl.create({
+      component: LoginModalComponent,
+      animated: true,
+      enterAnimation: this.enterAnimation,
+      leaveAnimation: this.leaveAnimation
     });
-    this.loginSub = this.sharedService.isLoginModalOpenSubject.subscribe((isLoginModalOpen: boolean) => {
-      if (!isLoginModalOpen) {
-        this.isLoginModalOpen = false;
-      }
-    });
-   }
-
-  toggleSidebar() {
-    this.isSidebarOpen = !this.isSidebarOpen;
-    this.sharedService.isSidebarOpenSubject.next(this.isSidebarOpen);
-  }
-
-  closeSidebar() {
-    this.isSidebarOpen = false;
-    this.sharedService.isSidebarOpenSubject.next(false);
-  }
-
-  openLoginModal() {
-    this.isLoginModalOpen = true
-    this.sharedService.isLoginModalOpenSubject.next(this.isLoginModalOpen);
+    modal.present();
   }
 
   ngOnDestroy() {
     this.sidebarSub.unsubscribe();
-    this.loginSub.unsubscribe();
   }
 
 }

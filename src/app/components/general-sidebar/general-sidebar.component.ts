@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
+import { removeSidebar } from 'src/app/shared/general.utils';
 
 @Component({
   selector: 'app-general-sidebar',
@@ -13,7 +14,10 @@ export class GeneralSidebarComponent implements OnInit {
   ngOnInit() {}
 
   closeSidebar() {
-    this.sharedService.isGeneralSidebarOpenSubject.next(false);
+    const element = removeSidebar();
+    element?.addEventListener('animationend', () => {
+      this.sharedService.isGeneralSidebarOpenSubject.next(false);
+    });
   }
 
 }

@@ -10,7 +10,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./home.page.scss']
 })
 export class HomePage implements OnInit, OnDestroy {
-  isSidebarOpen: boolean = false;
   dietAgencies: DietAgency[] = [];
   agencyText: string;
   dietAgenciesSub: Subscription;
