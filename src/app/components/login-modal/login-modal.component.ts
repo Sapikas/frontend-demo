@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
-import { SharedService } from 'src/app/services/shared.service';
 import { UserService } from 'src/app/state/userState/user.service';
 
 @Component({
@@ -19,12 +19,15 @@ export class LoginModalComponent implements OnInit, OnDestroy {
   submitText = 'Κάνε σύνδεση';
   authSub: Subscription;
 
-  constructor(private sharedService: SharedService, private userService: UserService, private router: Router) { }
+  constructor(
+    private userService: UserService, 
+    private router: Router,
+    private modalCtrl: ModalController) { }
 
   ngOnInit() {}
 
-  closeModal() {
-    this.sharedService.isLoginModalOpenSubject.next(false);
+  cancel() {
+    return this.modalCtrl.dismiss(null, 'cancel');
   }
 
   toggleActive(div: HTMLDivElement) {
@@ -42,10 +45,8 @@ export class LoginModalComponent implements OnInit, OnDestroy {
   onSubmit() {
     this.authSub = this.userService.login(this.signedUpForm.value).subscribe(
       () => {
-        this.sharedService.isLoginModalOpenSubject.next(false);
+        this.modalCtrl.dismiss(null, 'cancel');
         this.router.navigate(['/home']);
-      }, (error) => {
-        console.log(error);
       }
     );
   }

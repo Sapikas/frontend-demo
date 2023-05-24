@@ -25,6 +25,10 @@ ion-content {
         ion-col {
           color: #333;
 
+          ion-icon {
+            margin-bottom: -6px;
+          }
+
           span {
             font-size: 0.9rem;
           }

@@ -1,204 +1,186 @@
-.modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 18.667rem;
-  height: 100%;
-  max-height: 660px;
-  overflow-y: auto;
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 0.833rem;
-  z-index: 9999;
+ion-content {
+  --offset-bottom: auto!important;
+  --overflow: hidden;
+  overflow: auto;
 
-  @media screen and (max-width: 992px) {
-    max-height: 635px;
-    height: 70%;
-  }
-
-  @media screen and (max-width: 768px) {
-    max-height: 515px;
-    height: 75%;
-  }
-
-  @media screen and (max-width: 576px) {
-    max-height: 470px;
-    height: 80%;
-  }
-
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.833rem;
-
-    h2 {
-      font-size: 1rem;
-      letter-spacing: .005rem;
-      font-weight: bold;
-      color: #333;
-    }
-
-    .modal-close {
-      cursor: pointer;
-      font-size: 2rem;
-      font-weight: bold;
-      color: #ccc;
-    }
-  }
-
-  .modal-login-register {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 0.833rem;
-
-    div {
-      color: #aaa;
-      font-size: 16px;
-      width: 100%;
-      text-align: center;
-      padding-bottom: 0.833rem;
-      border-bottom: 1px solid #f5f5f5;
-      cursor: pointer;
-
-      &.active {
-        border-bottom: 2px solid #333;
+  .modal-content {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 0 0.833rem 0.833rem 0.833rem;
+  
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.833rem;
+  
+      h2 {
+        font-size: 1rem;
+        letter-spacing: .005rem;
+        font-weight: bold;
         color: #333;
       }
-
+  
+      .modal-close {
+        cursor: pointer;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #ccc;
+      }
+    }
+  
+    .modal-login-register {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 0.833rem;
+  
+      div {
+        color: #aaa;
+        font-size: 16px;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 0.833rem;
+        border-bottom: 1px solid #f5f5f5;
+        cursor: pointer;
+  
+        &.active {
+          border-bottom: 2px solid #333;
+          color: #333;
+        }
+  
+        @media screen and (max-width: 576px) {
+          font-size: 14px;
+        }
+      }
+    }
+  
+    .modal-buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0.833rem;
+  
+      .modal-button {
+        width: 100%;
+        height: 1.875rem;
+        margin-bottom: 0.417rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        font-weight: 400;
+        cursor: pointer;
+  
+        &.facebook {
+          background-color: #3b5998;
+          color: #fff;
+        }
+  
+        &.apple {
+          background-color: #000;
+          color: #fff;
+        }
+  
+        &.google {
+          background-color: #fff;
+          color: #000;
+        }
+  
+        @media screen and (max-width: 576px) {
+          font-size: 12px;
+        }
+      }
+    }
+  
+    .modal-separator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.833rem;
+  
+      .modal-circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #F7F7F7;
+  
+        span {
+          font-size: .777rem;
+          color: #333;
+          font-weight: 500;
+        }
+      }
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.833rem;
+  
+      .modal-input {
+        width: 100%;
+        height: 1.667rem;
+        margin-bottom: 0.833rem;
+        border-radius: 5px;
+        border: none;
+        padding: 0.417rem;
+        background-color: #F7F7F7;
+        font-size: .788rem;
+        font-weight: 500;
+        color: black;
+      }
+  
+      input:focus {
+        outline: none;
+      }
+  
+      .passDesc {
+        color: rgb(155, 155, 155);
+        font-size: 14px;
+        margin-bottom: 0.833rem;
+        margin-top: 0;
+  
+        @media screen and (max-width: 576px) {
+          font-size: 10px;
+        }
+      }
+    }
+  
+    .modal-login-button {
+      width: 100%;
+      height: 2.083rem;
+      border-radius: 5px;
+      border: none;
+      background-color: #ffc107;
+      color: #000;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+  
       @media screen and (max-width: 576px) {
         font-size: 14px;
       }
     }
-  }
-
-  .modal-buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0.833rem;
-
-    .modal-button {
-      width: 100%;
-      height: 1.875rem;
-      margin-bottom: 0.417rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      font-weight: 400;
-      cursor: pointer;
-
-      &.facebook {
-        background-color: #3b5998;
-        color: #fff;
-      }
-
-      &.apple {
-        background-color: #000;
-        color: #fff;
-      }
-
-      &.google {
-        background-color: #fff;
-        color: #000;
-      }
-
-      @media screen and (max-width: 576px) {
-        font-size: 12px;
-      }
-    }
-  }
-
-  .modal-separator {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0.833rem;
-
-    .modal-circle {
+  
+    .modal-footer {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background-color: #F7F7F7;
-
-      span {
-        font-size: .777rem;
-        color: #333;
-        font-weight: 500;
+      text-align: center;
+  
+      p {
+        font-size: .7rem;
+        color: #aaa;
+        margin-right: 0.208rem;
+        text-decoration: underline;
       }
     }
+  
+    // @media screen and (max-width: 576px) {
+    //   width: 75%;
+    // }
   }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0.833rem;
-
-    .modal-input {
-      width: 100%;
-      height: 1.667rem;
-      margin-bottom: 0.833rem;
-      border-radius: 5px;
-      border: none;
-      padding: 0.417rem;
-      background-color: #F7F7F7;
-      font-size: .788rem;
-      font-weight: 500;
-      color: black;
-    }
-
-    input:focus {
-      outline: none;
-    }
-
-    .passDesc {
-      color: rgb(155, 155, 155);
-      font-size: 14px;
-      margin-bottom: 0.833rem;
-      margin-top: 0;
-
-      @media screen and (max-width: 576px) {
-        font-size: 10px;
-      }
-    }
-  }
-
-  .modal-login-button {
-    width: 100%;
-    height: 2.083rem;
-    border-radius: 5px;
-    border: none;
-    background-color: #ffc107;
-    color: #000;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-
-    @media screen and (max-width: 576px) {
-      font-size: 14px;
-    }
-  }
-
-  .modal-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-
-    p {
-      font-size: .7rem;
-      color: #aaa;
-      margin-right: 0.208rem;
-      text-decoration: underline;
-    }
-  }
-
-  // @media screen and (max-width: 576px) {
-  //   width: 75%;
-  // }
 }

@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DietAgency } from 'src/app/models/diet-agency';
 import { MainService } from 'src/app/state/mainState/main.service';
-import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -11,8 +10,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./home.page.scss']
 })
 export class HomePage implements OnInit, OnDestroy {
-  faInstagram = faInstagram;
-  faFacebook = faFacebook;
   isSidebarOpen: boolean = false;
   dietAgencies: DietAgency[] = [];
   agencyText: string;
@@ -37,9 +34,8 @@ export class HomePage implements OnInit, OnDestroy {
     }
   }
 
-  onDietAgency(id: string) {
-    localStorage.setItem('productId', id);
-    this.router.navigate(['/agency']);
+  onDietAgency(name: string) {
+    this.router.navigate(['/agency', name]);
   }
 
   ngOnDestroy() {

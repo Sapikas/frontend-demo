@@ -9,7 +9,6 @@ import { environment } from 'src/environments/environment';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 
 import { MenuComponent } from './components/menu/menu.component';
@@ -41,7 +40,6 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    FontAwesomeModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
   ],
   providers: [

@@ -15,7 +15,7 @@ const routes: Routes = [
     component: HomePage,
   },
   {
-    path: 'agency',
+    path: 'agency/:name',
     component: DietAgencyPage,
   }
 ];

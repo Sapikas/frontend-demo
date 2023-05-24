@@ -1,24 +1,4 @@
-<header>
-  <div class="menu-container">
-    <div class="burger-menu" (click)="toggleSidebar()">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
-    <div class="logo">
-      <img src="path/to/logo.png" alt="logo">
-    </div>
-    <div class="login-register">
-      <button (click)="openLoginModal()">Σύνδεση/Εγγραφή</button>
-    </div>
-  </div>
-</header>
-
-<div class="sidebar" [class.open]="isSidebarOpen">
-  <div class="sidebar-header">
-    <h4>Menu</h4>
-    <button (click)="closeSidebar()">&#10005;</button>
-  </div>
+<div class="sidebar">
   <div class="menu-title">Menu 1</div>
   <ul>
     <li><a href="#">Menu Item 1</a></li>
@@ -37,7 +17,7 @@
   <div class="line"></div>
   <div class="contact-email">contact@yourdomain.com</div>
   <div class="social-media">
-    <a href="#" target="_blank"><fa-icon [icon]="faFacebook"></fa-icon></a>
-    <a href="#" target="_blank"><fa-icon [icon]="faInstagram"></fa-icon></a>
+    <ion-icon name="logo-facebook"></ion-icon>
+    <ion-icon name="logo-instagram"></ion-icon>
   </div>
 </div>

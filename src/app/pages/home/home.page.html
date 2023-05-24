@@ -4,7 +4,7 @@
     <ion-grid>
       <h2 class="ion-text-center">{{agencyText}}</h2>
       <ion-row *ngIf="dietAgencies.length !== 0">
-        <ion-col *ngFor="let dietAgency of dietAgencies" [attr.agency-id]="dietAgency._id" (click)="onDietAgency(dietAgency._id)" size="12" size-sm="6" size-md="4" size-lg="3">
+        <ion-col *ngFor="let dietAgency of dietAgencies" [attr.agency-id]="dietAgency._id" (click)="onDietAgency(dietAgency.name)" size="12" size-sm="6" size-md="4" size-lg="3">
           <div class="img-center">
             <img src="../../../assets/home/TheSocialClub_06.jpg" alt="social club">
           </div>

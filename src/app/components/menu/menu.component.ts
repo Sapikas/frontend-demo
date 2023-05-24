@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { Subscription } from 'rxjs';
 import { SharedService } from 'src/app/services/shared.service';
 
@@ -9,8 +8,6 @@ import { SharedService } from 'src/app/services/shared.service';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit, OnDestroy {
-  faInstagram = faInstagram;
-  faFacebook = faFacebook;
   isSidebarOpen: boolean = false;
   isLoginModalOpen: boolean = false;
   private sidebarSub: Subscription;

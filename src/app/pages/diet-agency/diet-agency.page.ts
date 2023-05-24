@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { faEnvelope, faPhone, faLocation, faStar } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
 import { MainQuery } from 'src/app/state/mainState/main.query';
 import { MainService } from 'src/app/state/mainState/main.service';
@@ -9,20 +9,18 @@ import { MainService } from 'src/app/state/mainState/main.service';
   templateUrl: './diet-agency.page.html',
   styleUrls: ['./diet-agency.page.scss'],
 })
-export class DietAgencyPage implements OnInit, OnDestroy {
-  faEnvelope = faEnvelope
-  faPhone = faPhone;
-  faLocation = faLocation;
-  faStar = faStar
+export class DietAgencyPage implements OnInit {
   isReviewSidebar: boolean = false;
 
-  constructor(private sharedSercice: SharedService, private mainService: MainService, private mainQuery: MainQuery) { }
+  constructor(private sharedSercice: SharedService, private mainService: MainService, private router: Router) { }
 
   ngOnInit() {
-    const productId = localStorage.getItem('productId');
-    if (productId) {
-      this.mainService.getDietAgency(productId).subscribe(res => {
-      console.log(res);
+    const url = this.router.url;
+    const segments = url.split('/');
+    const lastSegment = segments[segments.length - 1];
+    if (lastSegment) {
+      this.mainService.getDietAgency(lastSegment).subscribe(res => {
+        console.log(res);
     });
     }
   }
@@ -30,9 +28,5 @@ export class DietAgencyPage implements OnInit, OnDestroy {
   openReviewSidebar() {
     this.isReviewSidebar = true;
     this.sharedSercice.isGeneralSidebarOpenSubject.next(true);
-  }
-
-  ngOnDestroy() {
-    localStorage.removeItem('productId');
   }
 }

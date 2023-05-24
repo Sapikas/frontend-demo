@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Platform } from '@ionic/angular';
 
 @Component({
@@ -9,8 +8,6 @@ import { Platform } from '@ionic/angular';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent implements OnInit {
-  public faFacebook = faFacebookF;
-  public faInstagram = faInstagram;
   public mobileAppBanner: any;
   constructor(private platform: Platform) { }
 

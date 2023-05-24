@@ -18,9 +18,9 @@ export class MainService {
       );
   }
 
-  getDietAgency(productId: string) {
+  getDietAgency(productName: string) {
     return this.http
-      .get<any>(`http://localhost:4000/api/v1/dietAgencies/${productId}`, { headers: this.headers })
+      .get<any>(`http://localhost:4000/api/v1/dietAgencies/${productName}`, { headers: this.headers })
       .pipe(
         retry(1)
       );
