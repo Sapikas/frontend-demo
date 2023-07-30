@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -18,14 +18,15 @@ import { LoginModalComponent } from './components/login-modal/login-modal.compon
 import { DietAgencyPage } from './pages/diet-agency/diet-agency.page';
 import { GeneralSidebarComponent } from './components/general-sidebar/general-sidebar.component';
 
-import { HomePage } from './pages/home/home.page';
+import { DietAgenciesListPage } from './pages/diet-agencies-list/diet-agencies-list.page';
 import { SharedService } from './services/shared.service';
 import { FormsModule } from '@angular/forms';
+import { AuthenticationInterceptorService } from './services/authentication-interceptor.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePage,
+    DietAgenciesListPage,
     DietAgencyPage,
     MenuComponent,
     FooterComponent,
@@ -48,6 +49,7 @@ import { FormsModule } from '@angular/forms';
       provide: RouteReuseStrategy,
       useClass: IonicRouteStrategy
     },
+    {provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptorService, multi: true},
   ],
   bootstrap: [AppComponent],
 })

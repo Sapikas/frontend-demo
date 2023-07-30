@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { HomePage } from './pages/home/home.page';
+import { DietAgenciesListPage } from './pages/diet-agencies-list/diet-agencies-list.page';
 import { DietAgencyPage } from './pages/diet-agency/diet-agency.page';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'agencies',
     pathMatch: 'full',
   },
   {
-    path: 'home',
-    component: HomePage,
+    path: 'agencies',
+    component: DietAgenciesListPage,
   },
   {
     path: 'agency/:name',

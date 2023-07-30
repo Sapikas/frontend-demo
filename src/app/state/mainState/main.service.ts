@@ -25,5 +25,13 @@ export class MainService {
         retry(1)
       );
   }
+
+  searchDietAgencies(dietAgencyName: string) {
+    return this.http
+      .post<any>('http://localhost:4000/api/v1/dietAgencies/search', { payload: dietAgencyName }, { headers: this.headers })
+      .pipe(
+        retry(1)
+      );
+  }
 }
 

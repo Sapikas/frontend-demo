@@ -5,7 +5,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-content id="menu-content">
-    <div class="sidebar">
+    <div class="sidebar mt-3">
       <div class="menu-title">Menu 1</div>
       <ion-menu-toggle>
         <a routerLink="/home">Home</a>
@@ -42,16 +42,19 @@
     </div>
   </ion-content>
 </ion-menu>
-<div id="main-content">
+<div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
       <ion-title>Menu</ion-title>
-      <ion-buttons slot="end">
+      <ion-buttons slot="end" *ngIf="!isLoggedIn">
         <button expand="block" (click)="openModal()" class="login-register-button">Σύνδεση/Εγγραφή</button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
+  <ion-content id="routing-content">
+    <ion-router-outlet></ion-router-outlet>
+  </ion-content>
 </div>

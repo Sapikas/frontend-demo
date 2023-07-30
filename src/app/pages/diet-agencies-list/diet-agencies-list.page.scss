@@ -2,6 +2,13 @@ ion-content {
 
   .container {
 
+    .bg-hero {
+      background-image: url('../../../assets/home/pexels-rdne-stock-project-7551442.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
     ion-searchbar {
       --background: white;
       color: #333;
@@ -10,12 +17,25 @@ ion-content {
       --box-shadow: rgb(0 0 0 / 13%) 2px 2px 4px 2px;
     }
 
-    ion-grid {
-      h2 {
-        color: black;
-        font-size: 1rem;
-        font-weight: 600;
+    .danger {
+      ::ng-deep {
+        .searchbar-input {
+          --border: 1px solid red;
+        }
       }
+    }
+
+    .error-msg {
+      padding: 18px;
+      text-align: center;
+      border: 1px solid red;
+      border-radius: 3px;
+      background-color: #da9290;
+      color: white;
+      font-size: 16px;
+    }
+
+    ion-grid {
 
       ion-col {
         cursor: pointer;

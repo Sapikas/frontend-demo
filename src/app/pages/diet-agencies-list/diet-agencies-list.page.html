@@ -1,0 +1,26 @@
+<ion-content class="ion-padding-top">
+  <div class="container mx-auto pb-64">
+    <div class="bg-hero h-80 w-full flex items-center justify-center">
+      <div class="backdrop-opacity-10 backdrop-invert bg-black/30 text-center text-white p-3 w-1/4">
+        Super Diet
+      </div>
+    </div>
+    <h2 class="ion-text-center my-3">{{agencyText}}</h2>
+    <ion-searchbar *ngIf="dietAgencies.length !== 0" animated="true" placeholder="Αναζήτηση" 
+    [debounce]="1000" (ionChange)="handleChange($event)" (ionClear)="clearSearchBar()" 
+     [ngClass]="isError ? 'danger' : ''"></ion-searchbar>
+    <div class="error-msg" *ngIf="isError">{{ errorMessage }}</div>
+    <ion-grid class="mt-3">
+      <ion-row *ngIf="dietAgencies.length !== 0">
+        <ion-col *ngFor="let dietAgency of dietAgencies" [attr.agency-id]="dietAgency._id" 
+        (click)="onDietAgency(dietAgency.name)" size="12" size-sm="6" size-md="4" size-lg="3">
+          <div class="img-center">
+            <img src="../../../assets/home/TheSocialClub_06.jpg" alt="social club">
+          </div>
+          <h3>{{dietAgency.name}}</h3>
+          <p class="location">{{dietAgency.city}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

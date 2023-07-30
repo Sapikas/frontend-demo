@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
-import { AnimationController, ModalController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { UserQuery } from 'src/app/state/userState/user.query';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,47 +13,25 @@ import { AnimationController, ModalController } from '@ionic/angular';
 export class MenuComponent implements OnInit, OnDestroy {
   isLoginModalOpen: boolean = false;
   private sidebarSub: Subscription;
+  isLoggedIn: boolean = false;
 
   constructor(
     private modalCtrl: ModalController, 
-    private animationCtrl: AnimationController,) { }
+    private helperService: SharedService,
+    private userQuery: UserQuery) { }
 
-  ngOnInit() {}
-
-  enterAnimation = (baseEl: HTMLElement) => {
-    const root = baseEl.shadowRoot;
-
-    const backdropAnimation = this.animationCtrl
-      .create()
-      .addElement(root?.querySelector('ion-backdrop')!)
-      .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
-
-    const wrapperAnimation = this.animationCtrl
-      .create()
-      .addElement(root?.querySelector('.modal-wrapper')!)
-      .keyframes([
-        { offset: 0, opacity: '0', transform: 'scale(0)' },
-        { offset: 1, opacity: '0.99', transform: 'scale(1)' },
-      ]);
-
-    return this.animationCtrl
-      .create()
-      .addElement(baseEl)
-      .easing('ease-out')
-      .duration(500)
-      .addAnimation([backdropAnimation, wrapperAnimation]);
-  };
-
-  leaveAnimation = (baseEl: HTMLElement) => {
-    return this.enterAnimation(baseEl).direction('reverse');
-  };
+  ngOnInit() {
+    this.userQuery.sessionId$.subscribe(res => {
+      this.isLoggedIn = res ? true : false;
+    });
+  }
 
   async openModal() {
     const modal = await this.modalCtrl.create({
       component: LoginModalComponent,
       animated: true,
-      enterAnimation: this.enterAnimation,
-      leaveAnimation: this.leaveAnimation
+      enterAnimation: this.helperService.enterAnimation,
+      leaveAnimation: this.helperService.leaveAnimation
     });
     modal.present();
   }
