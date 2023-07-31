@@ -17,10 +17,12 @@ import { BottomMenuComponent } from './components/bottom-menu/bottom-menu.compon
 import { LoginModalComponent } from './components/login-modal/login-modal.component';
 import { DietAgencyPage } from './pages/diet-agency/diet-agency.page';
 import { GeneralSidebarComponent } from './components/general-sidebar/general-sidebar.component';
+import { HomePage } from './pages/home/home.page';
 
 import { DietAgenciesListPage } from './pages/diet-agencies-list/diet-agencies-list.page';
 import { SharedService } from './services/shared.service';
 import { FormsModule } from '@angular/forms';
+import { FormlyFormsModule } from './formly/formly-forms.module';
 import { AuthenticationInterceptorService } from './services/authentication-interceptor.service';
 
 @NgModule({
@@ -32,7 +34,8 @@ import { AuthenticationInterceptorService } from './services/authentication-inte
     FooterComponent,
     BottomMenuComponent,
     LoginModalComponent,
-    GeneralSidebarComponent
+    GeneralSidebarComponent,
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { AuthenticationInterceptorService } from './services/authentication-inte
     HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    FormlyFormsModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
   ],
   providers: [

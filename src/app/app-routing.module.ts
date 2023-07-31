@@ -3,11 +3,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { DietAgenciesListPage } from './pages/diet-agencies-list/diet-agencies-list.page';
 import { DietAgencyPage } from './pages/diet-agency/diet-agency.page';
+import { HomePage } from './pages/home/home.page';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'agencies',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
@@ -17,7 +18,12 @@ const routes: Routes = [
   {
     path: 'agency/:name',
     component: DietAgencyPage,
+  },
+  {
+    path: 'home',
+    component: HomePage
   }
+
 ];
 
 @NgModule({

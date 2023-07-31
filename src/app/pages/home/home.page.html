@@ -1,0 +1,20 @@
+<div class="bg-img flex items-center justify-center">
+  <div class="z-20 container relative">
+    <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+      <ul class="flex flex-wrap justify-center -mb-px text-sm font-medium text-center" 
+       role="tablist">
+          <li class="mr-2" role="presentation">
+              <button class="inline-block p-4 border-2 border-gray-200 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" 
+              [class.active]="isLoginTabActive" type="button" role="tab" (click)="login()"
+              >Login</button>
+          </li>
+          <li class="mr-2" role="presentation">
+              <button class="inline-block p-4 border-2 border-gray-200 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" 
+              [class.active]="isSignupTabActive" type="button" role="tab" (click)="signup()"
+              >Signup</button>
+          </li>
+      </ul>
+    </div>
+    <app-formly-form [form]="form" [model]="model" [schema]="schema" (submitFormEvent)="onSubmitHandler($event)"></app-formly-form>
+  </div>
+</div>

@@ -1,20 +1,17 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 import { ModalController } from '@ionic/angular';
-import { UserQuery } from 'src/app/state/userState/user.query';
 import { SharedService } from 'src/app/services/shared.service';
+import { UserQuery } from 'src/app/state/userState/user.query';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit, OnDestroy {
+export class MenuComponent implements OnInit {
   isLoginModalOpen: boolean = false;
-  private sidebarSub: Subscription;
   isLoggedIn: boolean = false;
-
   constructor(
     private modalCtrl: ModalController, 
     private helperService: SharedService,
@@ -22,7 +19,11 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.userQuery.sessionId$.subscribe(res => {
-      this.isLoggedIn = res ? true : false;
+      if (res) {
+        this.isLoggedIn = true;
+      } else {
+        this.isLoggedIn = false;
+      }
     });
   }
 
@@ -34,10 +35,6 @@ export class MenuComponent implements OnInit, OnDestroy {
       leaveAnimation: this.helperService.leaveAnimation
     });
     modal.present();
-  }
-
-  ngOnDestroy() {
-    this.sidebarSub.unsubscribe();
   }
 
 }
